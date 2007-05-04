@@ -1,23 +1,25 @@
 %define name    ponyprog2000
-%define version 2.06e
-%define release %mkrel 5
+%define version 2.07a
+%define release %mkrel 1
 
 Name:           %{name}
 Version:        %{version}
 Release:        %{release}
 Summary:        Serial device programmer
-Source0:        %{name}-%{version}.tar.bz2
-Patch0:		%name-2.06e.patch.bz2
+Source0:        http://downloads.sourceforge.net/ponyprog/PonyProg2000-%{version}.tar.gz
 # ponyprog 2000 is under GPL according to Author message:
 # http://ponyprog1.sourceforge.net/phorum/read.php?f=1&i=4096&t=4096
-Source1:	%{name}.png
+Source1:        %{name}.png
+Patch0:         PonyProg2000-2.07a.patch
 License:        GPL
 Group:          Development/Other
-Url:         	http://sourceforge.net/projects/ponyprog1/
+Url:            http://www.lancos.com/prog.html
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:  libv-devel, ImageMagick
+BuildRequires:  ImageMagick
+BuildRequires:  libv-devel
 BuildRequires:  X11-devel
-ExclusiveArch: x86_64 %{ix86}
+ExclusiveArch:  x86_64 %{ix86}
+Requires(post,postun): desktop-common-data
 
 %description
 PonyProg is a serial device programmer software with a user friendly GUI 
@@ -26,11 +28,10 @@ is reading and writing every serial device. At the moment it supports I²C Bus,
 Microwire, SPI eeprom, the Atmel AVR and Microchip PIC micro.
 
 %prep
-%setup -q -n software
+%setup -q -n PonyProg2000-%{version}
 %patch0 -p1
 
 %build
-
 export CFLAGS=$RPM_OPT_FLAGS
 export CXXFLAGS=$RPM_OPT_FLAGS
 
@@ -76,7 +77,6 @@ Terminal=false
 Type=Application
 Categories=X-MandrivaLinux-MoreApplications-Sciences-Robotics;Science;Electronics;
 EOF
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
