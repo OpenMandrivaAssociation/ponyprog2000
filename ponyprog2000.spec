@@ -14,7 +14,6 @@ Patch0:         PonyProg2000-2.07a.patch
 License:        GPL
 Group:          Development/Other
 Url:            http://www.lancos.com/prog.html
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  ImageMagick
 BuildRequires:  libv-devel
 BuildRequires:  X11-devel
