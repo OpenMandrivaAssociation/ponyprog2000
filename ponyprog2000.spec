@@ -52,19 +52,6 @@ convert -resize 32x32 %SOURCE1 $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
 convert -resize 48x48 %SOURCE1 $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
 # menu entry
-mkdir -p %buildroot/%_menudir
-cat > %buildroot/%_menudir/%name << EOF
-?package(%name): \
-command="%_bindir/%name" \
-needs="x11" \
-icon="%name.png" \
-section="More Applications/Sciences/Robotics" \
-title="Ponyprog2000" \
-longtitle="Serial device programmer" \
-mimetypes="" accept_url="false" \
-multiple_files="false" \
-xdg="true"
-EOF
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -94,5 +81,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_miconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
-%{_menudir}/%{name}
 %{_datadir}/applications/*
