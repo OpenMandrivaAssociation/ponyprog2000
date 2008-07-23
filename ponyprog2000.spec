@@ -1,6 +1,6 @@
 %define name    ponyprog2000
 %define version 2.07a
-%define release %mkrel 1
+%define release %mkrel 3
 
 Name:           %{name}
 Version:        %{version}
