@@ -1,16 +1,20 @@
 %define name    ponyprog2000
-%define version 2.07a
-%define release %mkrel 4
+%define version 2.07c
+%define release %mkrel 1
 
 Name:           %{name}
 Version:        %{version}
 Release:        %{release}
 Summary:        Serial device programmer
-Source0:        http://downloads.sourceforge.net/ponyprog/PonyProg2000-%{version}.tar.gz
+Source0:        http://downloads.sourceforge.net/ponyprog/Pony_Prog2000-%{version}.tar.gz
 # ponyprog 2000 is under GPL according to Author message:
 # http://ponyprog1.sourceforge.net/phorum/read.php?f=1&i=4096&t=4096
 Source1:        %{name}.png
 Patch0:         PonyProg2000-2.07a.patch
+# (fc) 2.07c-1mdv fix header location
+Patch1:		0001-fix-header.patch
+# (fc) 2.07c-1mdv fix missing parameter for creat
+Patch2:		0001-fix-missing-parameter-for-creat.patch
 License:        GPL
 Group:          Development/Other
 Url:            http://www.lancos.com/prog.html
@@ -29,13 +33,15 @@ Microwire, SPI eeprom, the Atmel AVR and Microchip PIC micro.
 
 %prep
 %setup -q -n PonyProg2000-%{version}
-%patch0 -p1
+%patch0 -p1 -b .fixbuild
+%patch1 -p1 -b .fixheader
+%patch2 -p1 -b .ocreat
 
 %build
 export CFLAGS=$RPM_OPT_FLAGS
 export CXXFLAGS=$RPM_OPT_FLAGS
 
-%make
+make CC=gcc CXX=g++
 
 %install
 rm -rf $RPM_BUILD_ROOT
