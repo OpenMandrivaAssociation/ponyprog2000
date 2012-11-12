@@ -1,0 +1,81 @@
+From d142d855fb1f0ae2bdfffa21d39b3b95367e1c87 Mon Sep 17 00:00:00 2001
+From: Frederic Crozat <fcrozat@mandriva.com>
+Date: Mon, 28 Sep 2009 14:04:30 +0200
+Subject: [PATCH] fix header
+
+---
+ pic12bus.cpp  |    2 +-
+ picbus.cpp    |    2 +-
+ picbusnew.cpp |    2 +-
+ ponyioint.cpp |    2 +-
+ sxbus.cpp     |    2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/pic12bus.cpp b/pic12bus.cpp
+index 7de5ee3..169052e 100644
+--- a/pic12bus.cpp
++++ b/pic12bus.cpp
+@@ -34,7 +34,7 @@
+ #include "e2app.h"
+ 
+ #ifdef	_LINUX_
+-#  include <asm/io.h>
++#  include <sys/io.h>
+ #  include <unistd.h>
+ #else
+ #  ifdef	__BORLANDC__
+diff --git a/picbus.cpp b/picbus.cpp
+index 56546e8..7e19c17 100644
+--- a/picbus.cpp
++++ b/picbus.cpp
+@@ -34,7 +34,7 @@
+ #include "e2app.h"
+ 
+ #ifdef	_LINUX_
+-#  include <asm/io.h>
++#  include <sys/io.h>
+ #  include <unistd.h>
+ #else
+ #  ifdef	__BORLANDC__
+diff --git a/picbusnew.cpp b/picbusnew.cpp
+index 769f886..c927d8c 100644
+--- a/picbusnew.cpp
++++ b/picbusnew.cpp
+@@ -34,7 +34,7 @@
+ #include "e2app.h"
+ 
+ #ifdef	_LINUX_
+-#  include <asm/io.h>
++#  include <sys/io.h>
+ #  include <unistd.h>
+ #else
+ #  ifdef	__BORLANDC__
+diff --git a/ponyioint.cpp b/ponyioint.cpp
+index c8d614d..f2352d5 100644
+--- a/ponyioint.cpp
++++ b/ponyioint.cpp
+@@ -57,7 +57,7 @@
+ # define RF_TEST (1 << RB_TEST)
+ 
+ #ifdef	_LINUX_
+-# include <asm/io.h>
++# include <sys/io.h>
+ # include <unistd.h>
+ #else
+ # ifdef	__BORLANDC__
+diff --git a/sxbus.cpp b/sxbus.cpp
+index 77d7e76..407d369 100644
+--- a/sxbus.cpp
++++ b/sxbus.cpp
+@@ -32,7 +32,7 @@
+ #include "errcode.h"
+ 
+ #ifdef	_LINUX_
+-#  include <asm/io.h>
++#  include <sys/io.h>
+ #  include <unistd.h>
+ #else
+ #  ifdef	__BORLANDC__
+-- 
+1.6.4.4
+

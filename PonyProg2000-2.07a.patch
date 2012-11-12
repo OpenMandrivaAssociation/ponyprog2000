@@ -1,0 +1,32 @@
+diff -Naur PonyProg2000-2.07a.orig/e2cmdw.cpp PonyProg2000-2.07a/e2cmdw.cpp
+--- PonyProg2000-2.07a.orig/e2cmdw.cpp	2007-05-03 09:51:54.000000000 -0300
++++ PonyProg2000-2.07a/e2cmdw.cpp	2007-05-04 10:03:14.000000000 -0300
+@@ -657,11 +657,11 @@
+ 
+ #define COMBOLIST_SIZE	128
+ 
+-static char* comboList1[COMBOLIST_SIZE];
++static const char* comboList1[COMBOLIST_SIZE];
+ 
+ //this determines only the size of the comboBox, the content will be initialized
+ //  within PostInit()
+-static char* comboList2[COMBOLIST_SIZE] =
++static const char* comboList2[COMBOLIST_SIZE] =
+   {
+     "123456789012345",   // The first item in the list
+     0            // 0 terminates the list
+diff -Naur PonyProg2000-2.07a.orig/Makefile PonyProg2000-2.07a/Makefile
+--- PonyProg2000-2.07a.orig/Makefile	2007-05-03 07:22:00.000000000 -0300
++++ PonyProg2000-2.07a/Makefile	2007-05-04 10:00:49.000000000 -0300
+@@ -114,10 +114,7 @@
+ 
+ .PHONY: default all objs clean cleanobj cleanall backup backuplink
+ 
+-default: vlib $(PROG)
+-
+-vlib:
+-	cd v; $(MAKE) vlib
++default: $(PROG)
+ 
+ installLinuxElf:
+ 	$(MAKE)	ARCH=linuxelf install
