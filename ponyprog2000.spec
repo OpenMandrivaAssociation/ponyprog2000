@@ -17,7 +17,7 @@ Patch1:		0001-fix-header.patch
 Patch2:		0001-fix-missing-parameter-for-creat.patch
 License:        GPL
 Group:          Development/Other
-Url:            http://www.lancos.com/prog.html
+Url:            https://www.lancos.com/prog.html
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  ImageMagick
 BuildRequires:  libv-devel
