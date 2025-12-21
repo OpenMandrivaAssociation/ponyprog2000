@@ -19,6 +19,7 @@ License:        GPL
 Group:          Development/Other
 Url:            https://www.lancos.com/prog.html
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	make
 BuildRequires:  ImageMagick
 BuildRequires:  libv-devel
 BuildRequires:  X11-devel
