@@ -1,6 +1,6 @@
 %define name    ponyprog2000
 %define version 2.07c
-%define release %mkrel 1
+%define release 2
 
 Name:           %{name}
 Version:        %{version}
@@ -29,7 +29,7 @@ Requires(post,postun): desktop-common-data
 %description
 PonyProg is a serial device programmer software with a user friendly GUI 
 framework available for Windows95, 98, 2000 & NT and Intel Linux. Its purpose 
-is reading and writing every serial device. At the moment it supports I²C Bus,
+is reading and writing every serial device. At the moment it supports Iï¿½C Bus,
 Microwire, SPI eeprom, the Atmel AVR and Microchip PIC micro.
 
 %prep
